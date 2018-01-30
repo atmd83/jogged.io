@@ -14,17 +14,6 @@ app.use(compression())
 
 
 
-const config = require('../knexfile');
-const env = (process.env.NODE_ENV == 'production') ? 'production' : 'development';
-var pg = require('knex')(config[env]);
-
-console.log(pg)
-
-
-
-
-
-
 
 
 
