@@ -55,15 +55,11 @@ router.post('/', (req, res) => {
 		'created_at': Date.now(),
 		'updated_at': Date.now()
 	}).then( function (result) {
-		//res.json({ success: true, message: 'ok' });     // respond back to request
-	
+		res.json({ success: true, message: 'ok' });
 	});
-
 	// header contains user id and app name	
 	// post contains { message: msg, level: level }
 	//  https://jogged-api.herokuapp.com/[id]/[project]`);
-
-	res.send('works')
 });
 
 

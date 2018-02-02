@@ -15,7 +15,6 @@ exports.up = function(knex, Promise) {
   CREATE OR REPLACE FUNCTION notify_trigger() RETURNS trigger AS $$
 DECLARE
 BEGIN
-  PERFORM pg_notify('watchers', TG_TABLE_NAME || ',id,' || NEW.id );
   PERFORM pg_notify('watchers', TG_TABLE_NAME || NEW.id || NEW.message || NEW.level);
   RETURN new;
 END;
