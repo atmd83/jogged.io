@@ -12,6 +12,17 @@ exports.up = function(knex, Promise) {
     updated_at bigint
   ); 
   
+
+CREATE TABLE users 
+(
+  id SERIAL PRIMARY KEY,
+  username varchar(255) UNIQUE NOT NULL, 
+  password varchar(255) NOT NULL, 
+  admin varchar(255) NOT NULL DEFAULT false, 
+  created_at bigint, 
+  updated_at bigint
+); 
+
   CREATE OR REPLACE FUNCTION notify_trigger() RETURNS trigger AS $$
 DECLARE
 BEGIN
@@ -28,5 +39,6 @@ FOR EACH ROW EXECUTE PROCEDURE notify_trigger();
 exports.down = function(knex, Promise) {
   return knex.raw(`
   DROP TABLE records;
+  DROP TABLE users;
 `);
 };
