@@ -1,3 +1,5 @@
+require('newrelic');
+
 const express = require('express')
 const app = express()
 var path = require('path')
@@ -23,8 +25,6 @@ app.set('view engine', 'handlebars');
 var flash = require('express-flash');
 
 app.use(compression())
-
-
 
 
 app.use(session({
